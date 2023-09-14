@@ -5,32 +5,60 @@ using UnityEngine.UIElements;
 
 public class experience : MonoBehaviour
 {
-    public GameObject pl;
+    public Player pl;
     public float velocity = 2;
+    public type tipo;
     void Start()
     {
-        pl = GameObject.FindGameObjectWithTag("Player");
+        pl = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        if (tipo == type.Experience)
+        {
+            velocity = 2;
+        }
+        else if (tipo == type.Coin)
+        {
+            velocity = 1;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        //float dis = Mathf.Sqrt(Mathf.Pow(pl.transform.position.x - transform.position.x, 2) + Mathf.Pow(pl.transform.position.y - transform.position.y, 2));
+        
        
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log("a");
-        if (collision.CompareTag("area"))
+        if (!Cancelacion.iscancel)
         {
-            Vector3 dir = gameObject.transform.position - pl.transform.position;
-            float angulo = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg + 180;
-            gameObject.transform.rotation = Quaternion.Euler(0, 0, -angulo);
-            transform.Translate(Vector2.up * velocity * Time.deltaTime);
+            //Debug.Log("a");
+            if (collision.CompareTag("area"))
+            {
+                Vector3 dir = gameObject.transform.position - pl.transform.position;
+                float angulo = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg + 180;
+                gameObject.transform.rotation = Quaternion.Euler(0, 0, -angulo);
+                transform.Translate(Vector2.up * velocity * Time.deltaTime);
+            }
+            if (collision.CompareTag("Player"))
+            {
+                if (tipo == type.Experience)
+                {
+                    pl.TakeExperience(50);
+                    Destroy(gameObject);
+                }
+                else if (tipo == type.Coin)
+                {
+                    velocity = 1;
+                    Destroy(gameObject);
+                }
+            }
         }
-        if (collision.CompareTag("Player"))
-        {
-            Destroy(gameObject);
-        }
+    }
+
+
+    public enum type
+    {
+        Coin,
+        Experience
     }
 }
