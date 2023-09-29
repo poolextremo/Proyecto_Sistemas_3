@@ -10,13 +10,18 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb;
     public CapsuleCollider2D col;
     public MenuController controller;
+    public Transform lifeUI;
+    public bool isdamage = false;
+    public SpriteRenderer paint;
 
-    public float velocity = 5, life = 100;
+
+    public float velocity = 5, life = 100, lifeTotal = 100;
 
     public int lv = 0, coins = 0, upLv = 100;
     public float experience = 0;
     void Start()
     {
+        paint = lifeUI.GetComponent<SpriteRenderer>();
         if (rb == null)
         {
             rb = GetComponent<Rigidbody2D>();
@@ -26,6 +31,7 @@ public class Player : MonoBehaviour
         {
             col = GetComponent<CapsuleCollider2D>();
             col.isTrigger = true;
+            lifeTotal = life;
         }
         controller = GameObject.FindGameObjectWithTag("Menu").GetComponent<MenuController>();
     }
@@ -37,7 +43,7 @@ public class Player : MonoBehaviour
         {
             float y = Input.GetAxis("Vertical");
             float x = Input.GetAxis("Horizontal");
-
+            LifeUI();
             rb.velocity = new Vector3(x * velocity, y * velocity, 0);
         }
         else
@@ -60,9 +66,30 @@ public class Player : MonoBehaviour
     {
         coins++; 
     }
-    public void TakeDamage()
+    void LifeUI()
     {
-
+        if (isdamage)
+        {
+            isdamage = false;
+            paint.color = new Color(paint.color.r, paint.color.g, paint.color.b, 1);
+        }
+        else
+        {
+            if (paint.color.a > 0)
+            {
+                paint.color = new Color(paint.color.r, paint.color.g, paint.color.b, paint.color.a - Time.deltaTime);
+            }
+        }
+    }
+    public void TakeDamage(float damage)
+    {
+        isdamage = true;
+        life -= damage;
+        lifeUI.localScale = new Vector3(1*(life/lifeTotal),0.2f,1);
+        if (life<=0)
+        {
+            Destroy(gameObject);
+        }
     }
     public enum Type
     {
