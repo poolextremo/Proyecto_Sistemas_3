@@ -5,8 +5,6 @@ using UnityEngine;
 public class sword : MonoBehaviour
 {
 
-
-    Vector2 mousePos;
     public Animator anim;
     public void Update()
     {
@@ -23,8 +21,12 @@ public class sword : MonoBehaviour
     }
     public void Rotate()
     {
-        Vector3 lookDir = Input.mousePosition - transform.position;
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
-        transform.rotation = Quaternion.Euler(0,0,angle);
+        Vector3 mousepos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.y));
+
+        mousepos.z = transform.position.z;
+
+        Vector3 dir = mousepos - transform.position;
+        float angle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg - 90;
+        transform.rotation = Quaternion.Euler(new Vector3(0,0,-angle));
     }
 }
