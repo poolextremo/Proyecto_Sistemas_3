@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(CapsuleCollider2D))]
@@ -17,10 +19,12 @@ public class Player : MonoBehaviour
 
     public float velocity = 5, life = 100, lifeTotal = 100;
 
-    public int lv = 0, coins = 0, upLv = 100;
+    public int lv = 0, coins = 0, upLv = 20;
     public float experience = 0;
+    public Image experienceUI;
     void Start()
     {
+        experienceUI.fillAmount = experience / 100;
         paint = lifeUI.GetComponent<SpriteRenderer>();
         if (rb == null)
         {
@@ -54,9 +58,10 @@ public class Player : MonoBehaviour
     public void TakeExperience(float ex)
     {
         experience += ex;
-        controller.MenuLevelUp();
+        experienceUI.fillAmount = experience/upLv;
         if (experience >= upLv)
         {
+            experience = 0;
             lv++;
             upLv *= 2;
             controller.MenuLevelUp();

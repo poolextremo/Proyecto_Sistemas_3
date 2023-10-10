@@ -43,7 +43,7 @@ public class experience : MonoBehaviour
             {
                 if (tipo == type.Experience)
                 {
-                    pl.TakeExperience(50);
+                    pl.TakeExperience(5);
                     Destroy(gameObject);
                 }
                 else if (tipo == type.Coin)

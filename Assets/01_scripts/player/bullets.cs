@@ -16,7 +16,7 @@ public class bullets : MonoBehaviour
     {
         if (!Cancelacion.iscancel)
         {
-            transform.Translate(Vector2.right * Time.deltaTime * velocity);
+            transform.Translate(Vector2.up * Time.deltaTime * velocity);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
