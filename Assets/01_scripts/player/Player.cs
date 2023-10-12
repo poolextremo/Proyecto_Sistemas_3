@@ -9,12 +9,15 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public Mejoras Upgrates;
     public Rigidbody2D rb;
     public CapsuleCollider2D col;
     public MenuController controller;
     public Transform lifeUI;
     public bool isdamage = false;
     public SpriteRenderer paint;
+    public TextMeshProUGUI textLvUI;
+    public List<GameObject> drones;
 
 
     public float velocity = 5, life = 100, lifeTotal = 100;
@@ -63,7 +66,9 @@ public class Player : MonoBehaviour
         {
             experience = 0;
             lv++;
+            textLvUI.text = "Lv " + lv + ":";
             upLv *= 2;
+            experienceUI.fillAmount = experience / upLv;
             controller.MenuLevelUp();
         }
     }
@@ -96,9 +101,28 @@ public class Player : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    public void ActivarDron()
+    {
+        foreach (var item in drones)
+        {
+            if (!item.activeSelf)
+            {
+                item.SetActive(true);
+                break;
+            }
+        }
+    }
     public enum Type
     {
         Sword,
         pistol
+    }
+    public enum Mejoras
+    {
+        SwordVelocity,
+        dronextra,
+        velocitydron,
+        damagedron,
+        damageSword
     }
 }

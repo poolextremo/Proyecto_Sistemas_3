@@ -44,6 +44,7 @@ public class dron : MonoBehaviour
         time += Time.deltaTime;
         if (time>timebtw)
         {
+            timebtw = General.dronvelocity;
             time = 0;
             Instantiate(bullet, firePoint.position, firePoint.rotation);
         }

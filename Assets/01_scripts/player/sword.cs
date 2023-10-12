@@ -11,7 +11,8 @@ public class sword : MonoBehaviour
         if (!Cancelacion.iscancel)
         {
             Rotate();
-            anim.speed = 1;
+            anim.speed = General.swordvelocity;
+            Debug.Log(anim.speed);
         }
         else
         {

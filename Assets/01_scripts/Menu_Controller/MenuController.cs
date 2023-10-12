@@ -8,6 +8,7 @@ public class MenuController : MonoBehaviour
     public Image menu, menulvup;
     public float timeSwip, timeBtw, velocity = 100;
     public bool cambio = false, isactive = false;
+    public List<ButtomMejora> bt;
     void Start()
     {
         menu = GameObject.FindGameObjectWithTag("Menu").GetComponent<Image>();
@@ -64,6 +65,11 @@ public class MenuController : MonoBehaviour
     }
     public void MenuLevelUp()
     {
+        foreach (var item in bt)
+        {
+            item.mejora = false;
+            item.lista = false;
+        }
         menulvup.rectTransform.anchoredPosition = new Vector3(-6, -7, 0);
         Cancelacion.lvup = true;
         Cancelacion.iscancel = true;

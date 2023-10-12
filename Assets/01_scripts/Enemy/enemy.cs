@@ -24,11 +24,14 @@ public class enemy : MonoBehaviour
     {
         isdamage = true;
         life -= damage;
-        lifeUI.localScale = new Vector3(1 * (life / lifeTotal), 0.2f, 1);
+        
         if (life <= 0)
         {
+            life = 0;
+            lifeUI.localScale = new Vector3(1 * (life / lifeTotal), 0.2f, 1);
             Destroy(gameObject);
         }
+        lifeUI.localScale = new Vector3(1 * (life / lifeTotal), 0.2f, 1);
     }
     void LifeUI()
     {
@@ -49,7 +52,7 @@ public class enemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("sword"))
         {
-            TakeDamage(5);
+            TakeDamage(General.sworddamage);
         }
     }
 }

@@ -23,7 +23,7 @@ public class bullets : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("enemy"))
         {
-            collision.gameObject.GetComponent<enemy>().TakeDamage(damage);
+            collision.gameObject.GetComponent<enemy>().TakeDamage(General.dronDamage);
             Destroy(gameObject);
         }
     }
