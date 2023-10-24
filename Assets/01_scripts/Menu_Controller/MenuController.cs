@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,8 @@ public class MenuController : MonoBehaviour
     public float timeSwip, timeBtw, velocity = 100;
     public bool cambio = false, isactive = false;
     public List<ButtomMejora> bt;
+
+    public TextMeshProUGUI lifeTxt, atackTxt, spdTxt, armTxt, crtTxt;
     void Start()
     {
         menu = GameObject.FindGameObjectWithTag("Menu").GetComponent<Image>();
@@ -22,6 +25,11 @@ public class MenuController : MonoBehaviour
 
         if (!Cancelacion.lvup)
         {
+            lifeTxt.text = General.life + "/" + General.lifetotal;
+            atackTxt.text = General.atack + "%";
+            spdTxt.text = General.speed + "%";
+            armTxt.text = General.armadura + "%";
+            crtTxt.text = General.criticos + "%";
             if (Input.GetKeyDown(KeyCode.Escape) && !cambio)
             {
                 cambio = true;

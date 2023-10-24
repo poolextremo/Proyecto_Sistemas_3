@@ -12,7 +12,7 @@ public class sword : MonoBehaviour
         {
             Rotate();
             anim.speed = General.swordvelocity;
-            Debug.Log(anim.speed);
+            //Debug.Log(anim.speed);
         }
         else
         {
