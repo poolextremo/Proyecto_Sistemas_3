@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
 {
     public Mejoras Upgrates;
     public Rigidbody2D rb;
+    public float moveSpeed;
+    public Vector2 moveDir;
     public CapsuleCollider2D col;
     public MenuController controller;
     public Transform lifeUI;
@@ -46,18 +48,28 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!Cancelacion.iscancel)
-        {
-            float y = Input.GetAxis("Vertical");
-            float x = Input.GetAxis("Horizontal");
-            LifeUI();
-            rb.velocity = new Vector3(x * velocity, y * velocity, 0);
-        }
-        else
-        {
-            rb.velocity = new Vector3(0,0,0);
-        }
+        inputManagement();
     }
+
+    void FixedUpdate()
+    {
+        Move();
+    }
+
+    void inputManagement()
+    {
+        float moveX = Input.GetAxis("Horizontal");
+        float moveY = Input.GetAxis("Vertical");
+
+        moveDir = new Vector2 (moveX, moveY).normalized;
+    }
+
+    void Move()
+    {
+        rb.velocity = new Vector2(moveDir.x * moveSpeed, moveDir.y * moveSpeed);
+    }
+
+
     public void TakeExperience(float ex)
     {
         experience += ex;
