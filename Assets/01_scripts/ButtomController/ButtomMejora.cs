@@ -15,7 +15,7 @@ public class ButtomMejora : MonoBehaviour
     {
         pl = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         upgrade = Player.Mejoras.damagedron;
-        Debug.Log("Hola mamahuevoi");
+        //Debug.Log("Hola mamahuevoi");
     }
 
     // Update is called once per frame
@@ -45,6 +45,7 @@ public class ButtomMejora : MonoBehaviour
                     break;
             }
             mejora = true;
+
             if (pl.drones[pl.drones.Count - 1].activeSelf && i == 2)
             {
                 mejora = false;
@@ -53,79 +54,91 @@ public class ButtomMejora : MonoBehaviour
         switch (upgrade)
         {
             case Player.Mejoras.SwordVelocity:
-                text.text = "velocidad de la espada +5%";
+
                 if (!lista)
                 {
-                    bt.onClick.AddListener(SwordVelocity);
+                    text.text = "Armadura nivel " + General.armaduraLvl;
+                    bt.onClick.AddListener(ArmorLvlUp);
                     lista = true;
                 }
-                    
+
                 break;
             case Player.Mejoras.dronextra:
-                text.text = "+1 dron";
+
                 if (!lista)
                 {
+                    text.text = "+1 dron";
                     bt.onClick.AddListener(DronExtra);
                     lista = true;
                 }
-                    
+
                 break;
             case Player.Mejoras.velocitydron:
-                text.text = "velocidad del dron +10%";
+
                 if (!lista)
                 {
-                    bt.onClick.AddListener(VelocityDron);
+                    text.text = "ataque nivel " + General.atackLvl;
+                    bt.onClick.AddListener(atackLvlUp);
                     lista = true;
                 }
-                    
+
                 break;
             case Player.Mejoras.damagedron:
-                text.text = "daño de los drones +15%";
+
                 if (!lista)
                 {
-                    bt.onClick.AddListener(DamageDron);
+                    text.text = "velocidad nivel " + General.speedLvl;
+                    bt.onClick.AddListener(SpeedLvlUp);
                     lista = true;
 
                 }
                 break;
             case Player.Mejoras.damageSword:
-                text.text = "daño de la espada +10%";
+
                 if (!lista)
                 {
-                    bt.onClick.AddListener(Sworddamage);
+                    text.text = "criticos nivel " + General.criticosLvl;
+                    bt.onClick.AddListener(CriticosLvlUp);
                     lista = true;
                 }
-                    
+
                 break;
             default:
                 text.text = "error inesperado";
                 break;
         }
     }
-    public void Sworddamage()
+    public void CriticosLvlUp()
     {
-        General.sworddamage += General.sworddamage * 0.1f;
-        bt.onClick.RemoveListener(Sworddamage);
+        General.criticos = General.criticos + 5;
+        General.criticosLvl++;
+        bt.onClick.RemoveListener(CriticosLvlUp);
+
     }
-    public void SwordVelocity()
+    public void ArmorLvlUp()
     {
         //Debug.Log("curioso: " + General.swordvelocity * 0.05f);
-        General.swordvelocity = (General.swordvelocity+General.swordvelocity*0.05f);
-        bt.onClick.RemoveListener(SwordVelocity);
+        General.armadura += General.armadura + 10;
+        General.armaduraLvl++;
+        bt.onClick.RemoveListener(ArmorLvlUp);
     }
-    public void DamageDron()
+    public void SpeedLvlUp()
     {
-        General.dronDamage += General.dronDamage * 0.15f;
-        bt.onClick.RemoveListener(DamageDron);
+        General.speed = General.speed + 25;
+        General.speedLvl++;
+        pl.AplicChange();
+        bt.onClick.RemoveListener(SpeedLvlUp);
     }
-    public void VelocityDron()
+    public void atackLvlUp()
     {
-        General.dronvelocity += General.dronvelocity * 0.1f;
-        bt.onClick.RemoveListener(VelocityDron);
+        General.atack = General.atack + 15;
+        General.atackLvl++;
+        bt.onClick.RemoveListener(atackLvlUp);
     }
     public void DronExtra()
     {
         pl.ActivarDron();
+        //Debug.Log("el dron esta aqui");
         bt.onClick.RemoveListener(DronExtra);
     }
 }

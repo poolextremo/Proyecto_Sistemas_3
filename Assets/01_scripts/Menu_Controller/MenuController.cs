@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,12 @@ public class MenuController : MonoBehaviour
     public float timeSwip, timeBtw, velocity = 100;
     public bool cambio = false, isactive = false;
     public List<ButtomMejora> bt;
+
+    public TextMeshProUGUI lifeTxt, atackTxt, spdTxt, armTxt, crtTxt;
+
+    public bool contar;
+
+    public TextMeshProUGUI textKills;
     void Start()
     {
         menu = GameObject.FindGameObjectWithTag("Menu").GetComponent<Image>();
@@ -17,11 +24,18 @@ public class MenuController : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.T))
+        if (contar)
+            textKills.text = "" + General.kills;
+        if (Input.GetKeyDown(KeyCode.T))
             Debug.Log("Pocicion: " + menu.rectTransform.anchoredPosition.y);
 
         if (!Cancelacion.lvup)
         {
+            lifeTxt.text = (int)General.life + "/" + (int)General.lifetotal;
+            atackTxt.text = General.atack + "%";
+            spdTxt.text = General.speed + "%";
+            armTxt.text = General.armadura + "%";
+            crtTxt.text = General.criticos + "%";
             if (Input.GetKeyDown(KeyCode.Escape) && !cambio)
             {
                 cambio = true;
@@ -32,7 +46,7 @@ public class MenuController : MonoBehaviour
                 Cambio();
             }
         }
-        
+
     }
     public void Cambio()
     {
@@ -61,7 +75,7 @@ public class MenuController : MonoBehaviour
                 cambio = false;
             }
         }
-            
+
     }
     public void MenuLevelUp()
     {

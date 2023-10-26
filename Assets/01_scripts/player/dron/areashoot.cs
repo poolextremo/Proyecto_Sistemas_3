@@ -8,14 +8,14 @@ public class areashoot : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<enemy>())
+        if (collision.gameObject.GetComponent<Enemy>())
         {
             dro.target.Add(collision.gameObject.transform);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<enemy>())
+        if (collision.gameObject.GetComponent<Enemy>())
         {
             dro.target.Remove(collision.gameObject.transform);
         }

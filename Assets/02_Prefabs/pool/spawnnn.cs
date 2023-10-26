@@ -13,7 +13,7 @@ public class spawnnn : MonoBehaviour
     }
 
     public EnemySpawnInfo[] enemies;  // Array para almacenar información de spawn de cada tipo de enemigo
-
+    public Transform pos1, pos2, target;
     private void Start()
     {
         // Comienza la generación de enemigos
@@ -28,8 +28,9 @@ public class spawnnn : MonoBehaviour
 
             while (elapsedTime < enemyInfo.spawnDuration)
             {
+                transform.position = target.position;
                 // Instancia el enemigo
-                Instantiate(enemyInfo.enemyPrefab, transform.position, Quaternion.identity);
+                Instantiate(enemyInfo.enemyPrefab, new Vector3(Random.Range(pos1.position.x, pos2.position.x), Random.Range(pos1.position.y, pos2.position.y), 0) , Quaternion.identity);
 
                 // Espera el tiempo de spawn antes de instanciar el siguiente enemigo
                 yield return new WaitForSeconds(enemyInfo.spawnTime);

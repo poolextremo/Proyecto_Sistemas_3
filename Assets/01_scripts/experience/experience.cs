@@ -48,7 +48,7 @@ public class experience : MonoBehaviour
                 }
                 else if (tipo == type.Coin)
                 {
-                    velocity = 1;
+                    pl.TakeCoin();
                     Destroy(gameObject);
                 }
             }

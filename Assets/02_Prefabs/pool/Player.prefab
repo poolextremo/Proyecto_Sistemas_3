@@ -1571,7 +1571,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1657,12 +1657,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20f94837ea63f014da40f48e83a184ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Upgrates: 0
   rb: {fileID: 0}
+  moveSpeed: 0
+  moveDir: {x: 0, y: 0}
   col: {fileID: 0}
   controller: {fileID: 0}
   lifeUI: {fileID: 6303971106844854060}
   isdamage: 0
   paint: {fileID: 0}
+  textLvUI: {fileID: 0}
+  drones: []
   velocity: 5
   life: 100
   lifeTotal: 100
@@ -1670,6 +1675,16 @@ MonoBehaviour:
   coins: 0
   upLv: 100
   experience: 0
+  experienceUI: {fileID: 0}
+  lifeUIMini: {fileID: 0}
+  velocitybase: 5
+  experienceTotal: 0
+  timeSecont: 0
+  timeMinute: 0
+  lifeTxt: {fileID: 0}
+  cointxt: {fileID: 0}
+  expTxt: {fileID: 0}
+  timeTxt: {fileID: 0}
 --- !u!1 &8102394492914938589
 GameObject:
   m_ObjectHideFlags: 0

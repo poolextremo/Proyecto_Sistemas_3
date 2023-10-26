@@ -16,14 +16,14 @@ public class bullets : MonoBehaviour
     {
         if (!Cancelacion.iscancel)
         {
-            transform.Translate(Vector3.forward * Time.deltaTime * velocity);
+            transform.Translate(Vector3.up * Time.deltaTime * velocity);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("enemy"))
         {
-            collision.gameObject.GetComponent<enemy>().TakeDamage(General.dronDamage);
+            collision.gameObject.GetComponent<Enemy>().TakeDamage(General.dronDamage);
             Destroy(gameObject);
         }
     }
