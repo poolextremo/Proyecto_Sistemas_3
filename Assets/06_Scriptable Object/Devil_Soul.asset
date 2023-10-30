@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7a46e6b07263be4e8820c5e137d4f2d, type: 3}
-  m_Name: SecondEnemy
+  m_Name: Devil_Soul
   m_EditorClassIdentifier: 
   moveSpeed: 3
   maxHealth: 0

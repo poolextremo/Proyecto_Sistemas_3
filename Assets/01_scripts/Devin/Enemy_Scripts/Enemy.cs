@@ -31,39 +31,9 @@ public class Enemy : MonoBehaviour
         if (!Cancelacion.iscancel)
         {
             LifeUI();
-            switch (type)
-            {
-                case EnemyType.FirstEnemy:
-                    SearchTarget();
-                    NormalMovement();
-                    RotateToTarget();
-                    //life = 10;
-                    break;
-                case EnemyType.SecondEnemy:
-                    SearchTarget();
-                    NormalMovement();
-                    RotateToTarget();
-                    //life = life + 50;
-                    break;
-                case EnemyType.ThirdEnemy:
-                    SearchTarget();
-                    NormalMovement();
-                    RotateToTarget();
-                    //life = life + 60;
-                    break;
-                case EnemyType.FourthEnemy:
-                    SearchTarget();
-                    NormalMovement();
-                    RotateToTarget();
-                    //life = life + 70;
-                    break;
-                case EnemyType.FifthEnemy:
-                    SearchTarget();
-                    NormalMovement();
-                    RotateToTarget();
-                    //life = life + 80;
-                    break;
-            }
+            SearchTarget();
+            NormalMovement();
+            RotateToTarget();
         }
     }
 
