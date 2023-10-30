@@ -23,6 +23,8 @@ public class dron : MonoBehaviour
             {
                 if (target.Count > 0)
                 {
+                    if (target[0] == null)
+                        target.Remove(target[0]);
                     Rotation();
                     Shoot();
                 }

@@ -132,10 +132,10 @@ public class Player : MonoBehaviour
             controller.MenuLevelUp();
         }
     }
-    public void TakeCoin()
+    public void TakeCoin(int cant)
     {
         //Debug.Log("agarro una moneda");
-        coins++;
+        coins+=cant;
         cointxt.text = "Monedas: " + coins;
     }
     void LifeUI()
