@@ -27,7 +27,7 @@ public class SecondEnemyAttack : MonoBehaviour
 
     void Shoot()
     {
-        int numDirections = 360;
+        int numDirections = 12; // Reducir el número de direcciones
         float angleSpacing = 360f / numDirections;
 
         for (int i = 0; i < numDirections; i++)
