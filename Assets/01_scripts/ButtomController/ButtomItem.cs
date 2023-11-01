@@ -9,11 +9,32 @@ public class ButtomItem : MonoBehaviour
     public TextMeshProUGUI texto;
     public Button bt;
     public Player pl;
-
+    public float costo;
     
     void Start()
     {
+        costo = 5;
         pl = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        switch (item)
+        {
+            case items.Sword:
+                    bt.onClick.AddListener(Sword);
+                break;
+            case items.Drone:
+                    bt.onClick.AddListener(Drone);
+                    bt.enabled = false;
+                break;
+            case items.BallEnergy:
+                    bt.onClick.AddListener(BallEnergy);
+                    bt.enabled = false;
+                break;
+            case items.Area:
+                    bt.onClick.AddListener(Area);
+                    bt.enabled = false;
+                break;
+            default:
+                break;
+        }
     }
 
     // Update is called once per frame
@@ -25,25 +46,80 @@ public class ButtomItem : MonoBehaviour
             {
                 case items.Sword:
                     if (General.sword)
-                        texto.text = "espada";
+                    {
+                        texto.text = "espada: " + (int)costo;
+                        if (!bt.enabled)
+                            bt.enabled = true;
+                    }
+                         
                     break;
                 case items.Drone:
                     if (General.drone)
-                        texto.text = "Drone";
+                    {
+                        texto.text = "Drone: " + (int)costo;
+                        if (!bt.enabled)
+                        {
+                            bt.enabled = true;
+                        }
+                           
+                    }
+                        
                     break;
                 case items.BallEnergy:
                     if (General.ballEnergy)
-                        texto.text = "bola de energia";
+                    {
+                        texto.text = "bola de energia: " + (int)costo;
+                        if (!bt.enabled)
+                            bt.enabled = true;
+                    }
+                        
                     break;
                 case items.Area:
                     if (General.area)
-                        texto.text = "area de efuego";
+                    {
+                        texto.text = "area de efuego: " + (int)costo;
+                        if (!bt.enabled)
+                            bt.enabled = true;
+                    }
                     break;
                 default:
                     break;
             }
         }
        
+    }
+    public void Sword()
+    {
+        if ((int)pl.coins>=(int)costo)
+        {
+            pl.TakeCoin(-(int)costo);
+            costo *= 1.5f;
+            General.swordvelocity *= 1.5f;
+            General.sworddamage *= 1.5f;
+        }
+        
+    }
+    public void Drone()
+    {
+        Debug.Log("entro dron");
+        if ((int)pl.coins >= (int)costo)
+        {
+            pl.TakeCoin(-(int)costo);
+            costo *= 1.5f;
+            General.dronvelocity /= 1.5f;
+            General.dronDamage *= 1.5f;
+        }
+            
+    }
+    public void BallEnergy()
+    {
+        pl.TakeCoin((int)costo);
+        costo *= 1.5f;
+    }
+    public void Area()
+    {
+        pl.TakeCoin((int)costo);
+        costo *= 1.5f;
     }
     public enum items
     {
