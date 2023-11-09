@@ -28,6 +28,7 @@ public class spawnnn : MonoBehaviour
 
             while (elapsedTime < enemyInfo.spawnDuration)
             {
+
                 transform.position = target.position;
                 // Instancia el enemigo
                 Instantiate(enemyInfo.enemyPrefab, new Vector3(Random.Range(pos1.position.x, pos2.position.x), Random.Range(pos1.position.y, pos2.position.y), 0) , Quaternion.identity);

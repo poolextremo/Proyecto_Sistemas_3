@@ -36,7 +36,7 @@ public class MenuController : MonoBehaviour
             spdTxt.text = General.speed + "%";
             armTxt.text = General.armadura + "%";
             crtTxt.text = General.criticos + "%";
-            if (Input.GetKeyDown(KeyCode.Escape) && !cambio)
+            if (Input.GetKeyDown(KeyCode.Q) && !cambio)
             {
                 cambio = true;
                 Cancelacion.iscancel = true;

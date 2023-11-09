@@ -94,8 +94,8 @@ public class ButtomItem : MonoBehaviour
         {
             pl.TakeCoin(-(int)costo);
             costo *= 1.5f;
-            General.swordvelocity *= 1.5f;
-            General.sworddamage *= 1.5f;
+            General.swordvelocity *= 1.2f;
+            General.sworddamage *= 1.2f;
         }
         
     }
@@ -113,13 +113,23 @@ public class ButtomItem : MonoBehaviour
     }
     public void BallEnergy()
     {
-        pl.TakeCoin((int)costo);
-        costo *= 1.5f;
+        if ((int)pl.coins >= (int)costo)
+        {
+            pl.TakeCoin(-(int)costo);
+            costo *= 1.5f;
+            //General.ballDamage /= 1.5f;
+            General.ballDamage *= 1.2f;
+        }
     }
     public void Area()
     {
-        pl.TakeCoin((int)costo);
-        costo *= 1.5f;
+        if ((int)pl.coins >= (int)costo)
+        {
+            pl.TakeCoin(-(int)costo);
+            costo *= 1.5f;
+            //General.ballDamage /= 1.5f;
+            General.areaDamage *= 1.5f;
+        }
     }
     public enum items
     {

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public EnemyType type = EnemyType.FirstEnemy;
 
     [Header("Enemy Stats")]
     public float speed = 2;
@@ -19,8 +18,13 @@ public class Enemy : MonoBehaviour
     public bool isdamage;
     public SpriteRenderer paint;
     public GameObject exp, coin;
+
+    public Animator amin;
     void Start()
     {
+        speed *= General.tiempo/2;
+        life *= General.tiempo;
+        amin.speed *= General.tiempo / 2;
         lifeTotal = life;
         paint = lifeUI.GetComponent<SpriteRenderer>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -97,6 +101,10 @@ public class Enemy : MonoBehaviour
         {
             TakeDamage(General.sworddamage);
         }
+        if (collision.gameObject.CompareTag("energyball"))
+        {
+            TakeDamage(General.ballDamage);
+        }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -104,14 +112,10 @@ public class Enemy : MonoBehaviour
         {
             collision.gameObject.GetComponent<Player>().TakeDamage(0.1f);
         }
+        if (collision.gameObject.CompareTag("AreaDamage"))
+        {
+            TakeDamage(General.areaDamage);
+        }
     }
 }
 
-public enum EnemyType
-{
-    FirstEnemy,
-    SecondEnemy,
-    ThirdEnemy,
-    FourthEnemy,
-    FifthEnemy
-}

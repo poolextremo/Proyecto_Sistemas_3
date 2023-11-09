@@ -18,12 +18,12 @@ public class ButtomMejora : MonoBehaviour
         //Debug.Log("Hola mamahuevoi");
     }
 
-    // Update is called once per frame
     void Update()
     {
         while (!mejora)
         {
-            int i = Random.Range(1, 6);
+            bt.onClick.RemoveAllListeners();
+            int i = Random.Range(1, 8);
             switch (i)
             {
                 case 1:
@@ -41,12 +41,26 @@ public class ButtomMejora : MonoBehaviour
                 case 5:
                     upgrade = Player.Mejoras.damageSword;
                     break;
+                case 6:
+                    upgrade = Player.Mejoras.ball;
+                    break;
+                case 7:
+                    upgrade = Player.Mejoras.area;
+                    break;
                 default:
                     break;
             }
             mejora = true;
 
             if (pl.drones[pl.drones.Count - 1].activeSelf && i == 2)
+            {
+                mejora = false;
+            }
+            if (General.ballEnergy && i == 6)
+            {
+                mejora = false;
+            }
+            if (General.area && i == 7)
             {
                 mejora = false;
             }
@@ -94,14 +108,28 @@ public class ButtomMejora : MonoBehaviour
                 }
                 break;
             case Player.Mejoras.damageSword:
-
                 if (!lista)
                 {
                     text.text = "criticos nivel " + General.criticosLvl;
                     bt.onClick.AddListener(CriticosLvlUp);
                     lista = true;
                 }
-
+                break;
+            case Player.Mejoras.ball:
+                if (!lista)
+                {
+                    text.text = "bola de energia ";
+                    bt.onClick.AddListener(ball);
+                    lista = true;
+                }
+                break;
+            case Player.Mejoras.area:
+                if (!lista)
+                {
+                    text.text = "area dañina ";
+                    bt.onClick.AddListener(Area);
+                    lista = true;
+                }
                 break;
             default:
                 text.text = "error inesperado";
@@ -140,5 +168,17 @@ public class ButtomMejora : MonoBehaviour
         pl.ActivarDron();
         //Debug.Log("el dron esta aqui");
         bt.onClick.RemoveListener(DronExtra);
+    }
+    public void ball()
+    {
+        General.ballEnergy = true;
+        //Debug.Log("el dron esta aqui");
+        bt.onClick.RemoveListener(ball);
+    }
+    public void Area()
+    {
+        General.area = true;
+        pl.area.SetActive(true);
+        bt.onClick.RemoveListener(Area);
     }
 }

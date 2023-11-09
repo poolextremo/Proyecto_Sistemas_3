@@ -234,7 +234,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 928618ced60f96e46be8fac06476ed16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
   speed: 2
   life: 10
   rb: {fileID: 0}
@@ -244,6 +243,7 @@ MonoBehaviour:
   paint: {fileID: 0}
   exp: {fileID: 6601019300216329408, guid: 37131ea808c433541b3835c4781ea262, type: 3}
   coin: {fileID: 6264761617113785897, guid: 22b0ef45fe400484190a8871749288a3, type: 3}
+  amin: {fileID: 3820932947891079755}
 --- !u!61 &8092040985727821052
 BoxCollider2D:
   m_ObjectHideFlags: 0

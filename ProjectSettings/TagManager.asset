@@ -9,6 +9,8 @@ TagManager:
   - MenuUp
   - enemy
   - sword
+  - AreaDamage
+  - energyball
   layers:
   - Default
   - TransparentFX

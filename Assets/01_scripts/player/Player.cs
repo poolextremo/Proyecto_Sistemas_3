@@ -27,11 +27,12 @@ public class Player : MonoBehaviour
 
     public int lv = 0, coins = 0, upLv = 20;
     public float experience = 0;
-    public Image experienceUI, lifeUIMini;
+    public Image experienceUI, lifeUIMini, swordImage, dronimage, ballImage, areaImage;
 
     public float velocitybase = 5;
 
-    public float  experienceTotal = 0, timeSecont, timeMinute;
+    public float  experienceTotal = 0, timeSecont, timeMinute, timeball = 0, timeballbtw = 1;
+    public GameObject energyball, sword, area;
 
     public TextMeshProUGUI lifeTxt, cointxt, expTxt, timeTxt;
     void Start()
@@ -71,6 +72,7 @@ public class Player : MonoBehaviour
         if (!Cancelacion.iscancel)
         {
             timeSecont += Time.deltaTime;
+            General.tiempo += Time.deltaTime/30;
             if (timeSecont > 60)
             {
                 timeSecont = 0;
@@ -98,7 +100,15 @@ public class Player : MonoBehaviour
     }
     public void BallEnergy()
     {
-
+        if (General.ballEnergy)
+        {
+            timeball+=Time.deltaTime;
+            if (timeball> timeballbtw)
+            {
+                timeball = 0;
+                Instantiate(energyball, transform.position, sword.transform.rotation);
+            }
+        }
     }
     void inputManagement()
     {
@@ -160,13 +170,19 @@ public class Player : MonoBehaviour
         lifeUI.localScale = new Vector3(1*(life/lifeTotal),0.2f,1);
         if (life<=0)
         {
+            General.ValuesDefault();
             SceneManager.LoadScene("MainMenu");
             //Destroy(gameObject);
         }
     }
     public void ActivarDron()
     {
-        General.drone = true;
+        if (!General.drone)
+        {
+            General.drone = true;
+            dronimage.gameObject.SetActive(true);
+        }
+            
         foreach (var item in drones)
         {
             if (!item.activeSelf)
@@ -185,6 +201,8 @@ public class Player : MonoBehaviour
     {
         SwordVelocity,
         dronextra,
+        ball,
+        area,
         velocitydron,
         damagedron,
         damageSword
