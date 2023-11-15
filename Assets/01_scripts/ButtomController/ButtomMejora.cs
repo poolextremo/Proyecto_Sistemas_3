@@ -91,8 +91,8 @@ public class ButtomMejora : MonoBehaviour
 
                 if (!lista)
                 {
-                    text.text = "ataque nivel " + General.atackLvl;
-                    bt.onClick.AddListener(atackLvlUp);
+                    text.text = "Regeneracion nivel " + General.regenLvl;
+                    bt.onClick.AddListener(regenLvlUp);
                     lista = true;
                 }
 
@@ -138,7 +138,7 @@ public class ButtomMejora : MonoBehaviour
     }
     public void CriticosLvlUp()
     {
-        General.criticos = General.criticos + 5;
+        General.criticos = General.criticos + 10;
         General.criticosLvl++;
         bt.onClick.RemoveListener(CriticosLvlUp);
 
@@ -146,7 +146,7 @@ public class ButtomMejora : MonoBehaviour
     public void ArmorLvlUp()
     {
         //Debug.Log("curioso: " + General.swordvelocity * 0.05f);
-        General.armadura += General.armadura + 10;
+        General.armadura += General.armadura + 15;
         General.armaduraLvl++;
         bt.onClick.RemoveListener(ArmorLvlUp);
     }
@@ -157,11 +157,11 @@ public class ButtomMejora : MonoBehaviour
         pl.AplicChange();
         bt.onClick.RemoveListener(SpeedLvlUp);
     }
-    public void atackLvlUp()
+    public void regenLvlUp()
     {
-        General.atack = General.atack + 15;
-        General.atackLvl++;
-        bt.onClick.RemoveListener(atackLvlUp);
+        General.regen = General.regen + 50;
+        General.regenLvl++;
+        bt.onClick.RemoveListener(regenLvlUp);
     }
     public void DronExtra()
     {

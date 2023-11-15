@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class Enemy : MonoBehaviour
 {
 
@@ -13,18 +13,19 @@ public class Enemy : MonoBehaviour
     Transform target;
     public Rigidbody rb;
 
-    public float lifeTotal;
+    public float lifeTotal, speedanim;
     public Transform lifeUI;
     public bool isdamage;
     public SpriteRenderer paint;
-    public GameObject exp, coin;
+    public GameObject exp, coin, damageVisual;
 
-    public Animator amin;
+    public Animator anim;
     void Start()
     {
         speed *= General.tiempo/2;
         life *= General.tiempo;
-        amin.speed *= General.tiempo / 2;
+        anim.speed *= General.tiempo / 2;
+        speedanim = anim.speed;
         lifeTotal = life;
         paint = lifeUI.GetComponent<SpriteRenderer>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -38,6 +39,12 @@ public class Enemy : MonoBehaviour
             SearchTarget();
             NormalMovement();
             RotateToTarget();
+            if(anim.speed==0)
+                anim.speed= speedanim;
+        }
+        else
+        {
+            anim.speed = 0;
         }
     }
 
@@ -77,6 +84,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        
         isdamage = true;
         life -= damage;
         
@@ -94,16 +102,29 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
         lifeUI.localScale = new Vector3(1 * (life / lifeTotal), 0.2f, 1);
+        if (damage>1)
+        {
+            GameObject texto = Instantiate(damageVisual, new Vector3(transform.position.x, transform.position.y, -1), damageVisual.transform.rotation);
+            texto.GetComponent<TextMeshPro>().text = "" + damage;
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("sword"))
         {
-            TakeDamage(General.sworddamage);
+            if (Random.Range(1, 101) < General.criticos)
+                TakeDamage(General.sworddamage*2);
+            else
+            {
+                TakeDamage(General.sworddamage);
+            }
         }
         if (collision.gameObject.CompareTag("energyball"))
         {
-            TakeDamage(General.ballDamage);
+            if (Random.Range(1, 101) < General.criticos)
+                TakeDamage(General.ballDamage * 2);
+            else
+                TakeDamage(General.ballDamage);
         }
     }
     private void OnTriggerStay2D(Collider2D collision)

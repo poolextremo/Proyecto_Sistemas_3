@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
     public float experience = 0;
     public Image experienceUI, lifeUIMini, swordImage, dronimage, ballImage, areaImage;
 
-    public float velocitybase = 5;
+    public float velocityBase = 5;
 
     public float  experienceTotal = 0, timeSecont, timeMinute, timeball = 0, timeballbtw = 1;
     public GameObject energyball, sword, area;
@@ -91,12 +91,21 @@ public class Player : MonoBehaviour
 
             Move();
             LifeUI();
+            Regeneracion();
         }
             
     }
+    public void Regeneracion()
+    {
+        if (life<100)
+        {
+            life += Time.deltaTime / 3 + ((Time.deltaTime / 3) * (General.regen / 100));
+        }
+        
+    }
     public void AplicChange()
     {
-        velocity = velocity + velocitybase * (General.speed / 100);
+        moveSpeed = moveSpeed + velocityBase * (General.speed / 100);
     }
     public void BallEnergy()
     {
@@ -166,7 +175,7 @@ public class Player : MonoBehaviour
     public void TakeDamage(float damage)
     {
         isdamage = true;
-        life -= damage;
+        life -= damage - (damage*(General.armadura/100));
         lifeUI.localScale = new Vector3(1*(life/lifeTotal),0.2f,1);
         if (life<=0)
         {

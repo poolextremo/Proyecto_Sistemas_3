@@ -33,26 +33,27 @@ public class EnemySpawn : MonoBehaviour
     {
         while (currentWave < waves.Length)
         {
-            Debug.Log("entro 1");
-            if (!Cancelacion.iscancel)
-            {
-                Debug.Log("entro 2");
+           // Debug.Log("entro 1");
+            
+               // Debug.Log("entro 2");
                 Wave currentWaveData = waves[currentWave];
                 float elapsedTime = 0f;
 
                 while (elapsedTime < currentWaveData.duration)
                 {
-                    foreach (EnemyData enemyData in currentWaveData.enemies)
-                    {
-                        SpawnEnemy(enemyData.enemyPrefab);
-                        yield return new WaitForSeconds(1f); // Ajusta según sea necesario
-                    }
+                   //Debug.Log("entro 3");
+                        foreach (EnemyData enemyData in currentWaveData.enemies)
+                        {
+                            //Debug.Log("entro 4");
+                            SpawnEnemy(enemyData.enemyPrefab);
+                            yield return new WaitForSeconds(1f); // Ajusta según sea necesario
+                        }
 
-                    elapsedTime += 1f * currentWaveData.enemies.Length; // Se asume que cada enemigo toma 1 segundo
+                        elapsedTime += 1f * currentWaveData.enemies.Length; // Se asume que cada enemigo toma 1 segundo
                 }
 
                 currentWave++;
-            }
+            
             yield return new WaitForSeconds(timeBetweenWaves);
         }
     }

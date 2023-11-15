@@ -32,7 +32,7 @@ public class MenuController : MonoBehaviour
         if (!Cancelacion.lvup)
         {
             lifeTxt.text = (int)General.life + "/" + (int)General.lifetotal;
-            atackTxt.text = General.atack + "%";
+            atackTxt.text = General.regen + "%";
             spdTxt.text = General.speed + "%";
             armTxt.text = General.armadura + "%";
             crtTxt.text = General.criticos + "%";
