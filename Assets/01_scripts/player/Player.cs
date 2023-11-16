@@ -37,8 +37,13 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI lifeTxt, cointxt, expTxt, timeTxt;
 
     public AudioClip areasonido, subirinvel, agarrarmoneda, agarrarexperencia;
+    public GameObject objetoHijo;
+    private Animator animatorObjetoHijo;
+    private SpriteRenderer spriteRendererHijo;
     void Start()
     {
+        animatorObjetoHijo = objetoHijo.GetComponent<Animator>();
+        spriteRendererHijo = objetoHijo.GetComponent<SpriteRenderer>();
         experienceUI.fillAmount = experience / 100;
         paint = lifeUI.GetComponent<SpriteRenderer>();
         if (rb == null)
@@ -67,6 +72,25 @@ public class Player : MonoBehaviour
             moveDir = new Vector2(0,0);
             rb.velocity = Vector2.zero;
         }
+
+        if (Input.GetKey(KeyCode.W)||Input.GetKey(KeyCode.S)||Input.GetKey(KeyCode.A)||Input.GetKey(KeyCode.D)||Input.GetKey(KeyCode.UpArrow)||Input.GetKey(KeyCode.DownArrow)||Input.GetKey(KeyCode.LeftArrow)||Input.GetKey(KeyCode.RightArrow))
+        {
+            animatorObjetoHijo.SetBool("IsWalking", true);
+        }
+        else
+        {
+            animatorObjetoHijo.SetBool("IsWalking", false);
+        }
+
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            spriteRendererHijo.flipX = false;
+        }
+        else if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            spriteRendererHijo.flipX = true;
+        }
+
     }
 
     void FixedUpdate()
