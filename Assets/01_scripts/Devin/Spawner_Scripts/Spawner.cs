@@ -2,32 +2,53 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class EnemyInfo
-{
-    public GameObject enemyPrefab;
-    public float spawnTime;
-}
 
 public class Spawner : MonoBehaviour
 {
-    public EnemyInfo[] enemies; 
+    public List<GameObject> enemigos;
 
+    public float time = 0, timebtw = 1;
+
+    public int cant, enemy;
+
+    public Transform pos1, pos2;
     void Start()
     {
-        StartCoroutine(SpawnEnemies());
+        enemy = 0;
+        cant = Random.Range(20,40);
     }
-
-    IEnumerator SpawnEnemies()
+    private void Update()
     {
-        foreach (var enemyInfo in enemies)
+        if (!Cancelacion.iscancel)
         {
-            while (true)
+            time += Time.deltaTime;
+            if (time > timebtw)
             {
-                Instantiate(enemyInfo.enemyPrefab, transform.position, Quaternion.identity);
-
-                yield return new WaitForSeconds(enemyInfo.spawnTime);
+                time = 0;
+                cant--;
+                if (Random.Range(0,2) == 1)
+                {
+                    if (Random.Range(0, 2) == 1)
+                        Instantiate(enemigos[enemy], new Vector2(pos1.position.x, Random.Range(pos2.position.y, pos1.position.y)), transform.rotation);
+                    else
+                        Instantiate(enemigos[enemy], new Vector2(pos2.position.x, Random.Range(pos2.position.y, pos1.position.y)), transform.rotation);
+                }
+                else
+                {
+                    if (Random.Range(0, 2) == 1)
+                        Instantiate(enemigos[enemy], new Vector2(Random.Range(pos2.position.x, pos1.position.x), pos1.position.y), transform.rotation);
+                    else
+                        Instantiate(enemigos[enemy], new Vector2(Random.Range(pos2.position.x, pos1.position.x), pos2.position.y), transform.rotation);
+                }
+                if (cant == 0)
+                {
+                    enemy++;
+                    if (enemy == enemigos.Count)
+                        enemy = 0;
+                    cant = Random.Range(20, 40);
+                }
             }
         }
+       
     }
 }

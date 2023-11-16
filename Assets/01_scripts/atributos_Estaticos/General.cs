@@ -21,7 +21,7 @@ public static class General
 
     public static float life, lifetotal;
 
-    public static int atack = 0, speed = 0, armadura = 0, criticos = 0, atackLvl = 1, speedLvl = 1, armaduraLvl = 1, criticosLvl = 1,kills = 0;
+    public static int regen = 0, speed = 0, armadura = 0, criticos = 0, regenLvl = 1, speedLvl = 1, armaduraLvl = 1, criticosLvl = 1,kills = 0;
 
     public static void ValuesDefault()
     {
@@ -48,11 +48,11 @@ public static class General
         life = 0;
         lifetotal = 0;
 
-        atack = 0; 
+        regen = 0; 
         speed = 0;
         armadura = 0;
         criticos = 0;
-        atackLvl = 1;
+        regenLvl = 1;
         speedLvl = 1;
         armaduraLvl = 1;
         criticosLvl = 1;
