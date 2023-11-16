@@ -20,8 +20,14 @@ public class Enemy : MonoBehaviour
     public GameObject exp, coin, damageVisual;
 
     public Animator anim;
+
+    public Spawner spawner;
+
+    public AudioClip sonidomuerte;
     void Start()
     {
+        spawner = GameObject.FindGameObjectWithTag("spawner").GetComponent<Spawner>();
+
         speed *= General.tiempo/2;
         life *= General.tiempo;
         anim.speed *= General.tiempo / 2;
@@ -84,28 +90,32 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        
-        isdamage = true;
-        life -= damage;
-        
-        if (life <= 0)
+        if (!Cancelacion.iscancel)
         {
-            life = 0;
-            lifeUI.localScale = new Vector3(1 * (life / lifeTotal), 0.2f, 1);
+            isdamage = true;
+            life -= damage;
 
-            if (Random.Range(0,2) == 1)
-                Instantiate(exp, transform.position, transform.rotation);
-            
-            else if (Random.Range(0, 5) == 4)
-                Instantiate(coin, transform.position, transform.rotation);
-            General.kills++;
-            Destroy(gameObject);
-        }
-        lifeUI.localScale = new Vector3(1 * (life / lifeTotal), 0.2f, 1);
-        if (damage>1)
-        {
-            GameObject texto = Instantiate(damageVisual, new Vector3(transform.position.x, transform.position.y, -1), damageVisual.transform.rotation);
-            texto.GetComponent<TextMeshPro>().text = "" + damage;
+            if (life <= 0)
+            {
+                life = 0;
+                lifeUI.localScale = new Vector3(1 * (life / lifeTotal), 0.2f, 1);
+
+                if (Random.Range(0, 2) == 1)
+                    Instantiate(exp, transform.position, transform.rotation);
+
+                else if (Random.Range(0, 5) == 4)
+                    Instantiate(coin, transform.position, transform.rotation);
+                General.kills++;
+                GameManager.instance.playsfx(sonidomuerte);
+                spawner.cantMax.Remove(gameObject);
+                Destroy(gameObject);
+            }
+            lifeUI.localScale = new Vector3(1 * (life / lifeTotal), 0.2f, 1);
+            if (damage > 1)
+            {
+                GameObject texto = Instantiate(damageVisual, new Vector3(transform.position.x, transform.position.y, -1), damageVisual.transform.rotation);
+                texto.GetComponent<TextMeshPro>().text = "" + damage;
+            }
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

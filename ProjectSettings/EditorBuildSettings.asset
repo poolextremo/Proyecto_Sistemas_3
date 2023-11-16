@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/00_Scenes/MainMenu.unity
-    guid: 6bdc1d868230d9a488cfa3b1dd296ee2
+    path: Assets/00_Scenes/pool2/MainMenu.unity
+    guid: 7688fe8867db550448307b38c535b506
   - enabled: 1
-    path: Assets/00_Scenes/GameScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/00_Scenes/pool2/GameScene.unity
+    guid: 2a71a1996403177459b4a0cba17a7ff1
+  - enabled: 1
+    path: Assets/00_Scenes/pool2/GameOver.unity
+    guid: 6212338280e7aee4097dfb563b3f6a18
   m_configObjects: {}

@@ -6,6 +6,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public List<GameObject> enemigos;
+    public List<GameObject> cantMax;
 
     public float time = 0, timebtw = 1;
 
@@ -19,7 +20,7 @@ public class Spawner : MonoBehaviour
     }
     private void Update()
     {
-        if (!Cancelacion.iscancel)
+        if (!Cancelacion.iscancel && cantMax.Count<20)
         {
             time += Time.deltaTime;
             if (time > timebtw)
@@ -29,16 +30,16 @@ public class Spawner : MonoBehaviour
                 if (Random.Range(0,2) == 1)
                 {
                     if (Random.Range(0, 2) == 1)
-                        Instantiate(enemigos[enemy], new Vector2(pos1.position.x, Random.Range(pos2.position.y, pos1.position.y)), transform.rotation);
+                        cantMax.Add(Instantiate(enemigos[enemy], new Vector2(pos1.position.x, Random.Range(pos2.position.y, pos1.position.y)), transform.rotation));
                     else
-                        Instantiate(enemigos[enemy], new Vector2(pos2.position.x, Random.Range(pos2.position.y, pos1.position.y)), transform.rotation);
+                        cantMax.Add(Instantiate(enemigos[enemy], new Vector2(pos2.position.x, Random.Range(pos2.position.y, pos1.position.y)), transform.rotation));
                 }
                 else
                 {
                     if (Random.Range(0, 2) == 1)
-                        Instantiate(enemigos[enemy], new Vector2(Random.Range(pos2.position.x, pos1.position.x), pos1.position.y), transform.rotation);
+                        cantMax.Add(Instantiate(enemigos[enemy], new Vector2(Random.Range(pos2.position.x, pos1.position.x), pos1.position.y), transform.rotation));
                     else
-                        Instantiate(enemigos[enemy], new Vector2(Random.Range(pos2.position.x, pos1.position.x), pos2.position.y), transform.rotation);
+                        cantMax.Add(Instantiate(enemigos[enemy], new Vector2(Random.Range(pos2.position.x, pos1.position.x), pos2.position.y), transform.rotation));
                 }
                 if (cant == 0)
                 {

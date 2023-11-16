@@ -8,10 +8,16 @@ public class PlayButtonScript : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene("GameScene");
+        General.ValuesDefault();
     }
 
     public void ExitGame()
     {
         Application.Quit();
+    }
+    public void MenuGame()
+    {
+        SceneManager.LoadScene("MainMenu");
+        General.ValuesDefault();
     }
 }

@@ -33,13 +33,13 @@ public class MenuController : MonoBehaviour
         {
             lifeTxt.text = (int)General.life + "/" + (int)General.lifetotal;
             atackTxt.text = General.regen + "%";
-            spdTxt.text = General.speed + "%";
+            spdTxt.text = (General.speed*100) + "%";
             armTxt.text = General.armadura + "%";
             crtTxt.text = General.criticos + "%";
             if (Input.GetKeyDown(KeyCode.Q) && !cambio)
             {
-                cambio = true;
                 Cancelacion.iscancel = true;
+                cambio = true;
             }
             if (cambio)
             {

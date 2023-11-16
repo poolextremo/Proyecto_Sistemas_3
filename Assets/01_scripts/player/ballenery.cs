@@ -5,8 +5,10 @@ using UnityEngine;
 public class ballenery : MonoBehaviour
 {
     public float velocity = 5f;
+    public AudioClip audiobola;
     void Start()
     {
+        GameManager.instance.playsfx(audiobola);
         Destroy(gameObject,3);
     }
 

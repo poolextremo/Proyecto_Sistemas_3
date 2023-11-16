@@ -9,6 +9,8 @@ public class dron : MonoBehaviour
 
     public GameObject bullet;
     public float time, timebtw = 1;
+
+    public AudioClip audioshot;
     void Start()
     {
 
@@ -48,6 +50,7 @@ public class dron : MonoBehaviour
         {
             timebtw = General.dronvelocity;
             time = 0;
+            GameManager.instance.playsfx(audioshot);
             Instantiate(bullet, firePoint.position, firePoint.rotation);
         }
     }

@@ -11,11 +11,12 @@ public class ButtomMejora : MonoBehaviour
     public Button bt;
     public bool mejora;
     public bool lista;
+
+    public AudioClip sonidomejora;
     void Start()
     {
         pl = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        upgrade = Player.Mejoras.damagedron;
-        //Debug.Log("Hola mamahuevoi");
+        upgrade = Player.Mejoras.velocidad;
     }
 
     void Update()
@@ -27,47 +28,69 @@ public class ButtomMejora : MonoBehaviour
             switch (i)
             {
                 case 1:
-                    upgrade = Player.Mejoras.SwordVelocity;
+                    upgrade = Player.Mejoras.armadura;
+                    mejora = true;
+                    if (General.armaduraLvl > 5)
+                    {
+                        mejora = false;
+                    }
                     break;
                 case 2:
                     upgrade = Player.Mejoras.dronextra;
+                    Debug.Log("activar dron");
+                    mejora = true;
+                    if (pl.drones[pl.drones.Count - 1].activeSelf)
+                    {
+                        mejora = false;
+                    }
                     break;
                 case 3:
-                    upgrade = Player.Mejoras.velocitydron;
+                    upgrade = Player.Mejoras.regeneracion;
+                    mejora = true;
+                    if (General.regenLvl > 5)
+                    {
+                        mejora = false;
+                    }
                     break;
                 case 4:
-                    upgrade = Player.Mejoras.damagedron;
+                    upgrade = Player.Mejoras.velocidad;
+                    mejora = true;
+                    if (General.speedLvl > 5)
+                    {
+                        mejora = false;
+                    }
                     break;
                 case 5:
-                    upgrade = Player.Mejoras.damageSword;
+                    upgrade = Player.Mejoras.criticos;
+                    mejora = true;
+                    if (General.criticosLvl > 5)
+                    {
+                        mejora = false;
+                    }
                     break;
                 case 6:
                     upgrade = Player.Mejoras.ball;
+                    mejora = true;
+                    if (General.ballEnergy)
+                    {
+                        mejora = false;
+                    }
                     break;
                 case 7:
                     upgrade = Player.Mejoras.area;
+                    mejora = true;
+                    if (General.area)
+                    {
+                        mejora = false;
+                    }
                     break;
                 default:
                     break;
             }
-            mejora = true;
-
-            if (pl.drones[pl.drones.Count - 1].activeSelf && i == 2)
-            {
-                mejora = false;
-            }
-            if (General.ballEnergy && i == 6)
-            {
-                mejora = false;
-            }
-            if (General.area && i == 7)
-            {
-                mejora = false;
-            }
         }
         switch (upgrade)
         {
-            case Player.Mejoras.SwordVelocity:
+            case Player.Mejoras.armadura:
 
                 if (!lista)
                 {
@@ -87,7 +110,7 @@ public class ButtomMejora : MonoBehaviour
                 }
 
                 break;
-            case Player.Mejoras.velocitydron:
+            case Player.Mejoras.regeneracion:
 
                 if (!lista)
                 {
@@ -97,7 +120,7 @@ public class ButtomMejora : MonoBehaviour
                 }
 
                 break;
-            case Player.Mejoras.damagedron:
+            case Player.Mejoras.velocidad:
 
                 if (!lista)
                 {
@@ -107,7 +130,7 @@ public class ButtomMejora : MonoBehaviour
 
                 }
                 break;
-            case Player.Mejoras.damageSword:
+            case Player.Mejoras.criticos:
                 if (!lista)
                 {
                     text.text = "criticos nivel " + General.criticosLvl;
@@ -140,45 +163,52 @@ public class ButtomMejora : MonoBehaviour
     {
         General.criticos = General.criticos + 10;
         General.criticosLvl++;
+        GameManager.instance.playsfx(sonidomejora);
         bt.onClick.RemoveListener(CriticosLvlUp);
 
     }
     public void ArmorLvlUp()
     {
-        //Debug.Log("curioso: " + General.swordvelocity * 0.05f);
-        General.armadura += General.armadura + 15;
+        General.armadura = General.armadura + 15;
         General.armaduraLvl++;
+        GameManager.instance.playsfx(sonidomejora);
         bt.onClick.RemoveListener(ArmorLvlUp);
     }
     public void SpeedLvlUp()
     {
-        General.speed = General.speed + 25;
+        General.speed = General.speed + 0.25f;
         General.speedLvl++;
         pl.AplicChange();
+        GameManager.instance.playsfx(sonidomejora);
         bt.onClick.RemoveListener(SpeedLvlUp);
     }
     public void regenLvlUp()
     {
         General.regen = General.regen + 50;
         General.regenLvl++;
+        GameManager.instance.playsfx(sonidomejora);
         bt.onClick.RemoveListener(regenLvlUp);
     }
     public void DronExtra()
     {
         pl.ActivarDron();
         //Debug.Log("el dron esta aqui");
+        GameManager.instance.playsfx(sonidomejora);
         bt.onClick.RemoveListener(DronExtra);
     }
     public void ball()
     {
         General.ballEnergy = true;
-        //Debug.Log("el dron esta aqui");
+        pl.ballImage.gameObject.SetActive(true);
+        GameManager.instance.playsfx(sonidomejora);
         bt.onClick.RemoveListener(ball);
     }
     public void Area()
     {
         General.area = true;
         pl.area.SetActive(true);
+        pl.acticararea();
+        GameManager.instance.playsfx(sonidomejora);
         bt.onClick.RemoveListener(Area);
     }
 }

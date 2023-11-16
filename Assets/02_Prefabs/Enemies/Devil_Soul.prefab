@@ -246,6 +246,8 @@ MonoBehaviour:
   coin: {fileID: 6264761617113785897, guid: 22b0ef45fe400484190a8871749288a3, type: 3}
   damageVisual: {fileID: 4920578661077934754, guid: 22d340f1317eac747801d19525877291, type: 3}
   anim: {fileID: 2833240904800196881}
+  spawner: {fileID: 0}
+  sonidomuerte: {fileID: 8300000, guid: 985b9790b9cbb4349b95d953f55115f4, type: 3}
 --- !u!61 &8092040985727821052
 BoxCollider2D:
   m_ObjectHideFlags: 0

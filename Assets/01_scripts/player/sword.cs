@@ -6,19 +6,24 @@ public class sword : MonoBehaviour
 {
 
     public Animator anim;
+    public bool actuar = true;
+
+    public AudioClip espadaso;
     public void Update()
     {
-        if (!Cancelacion.iscancel)
+        if (actuar)
         {
-            Rotate();
-            anim.speed = General.swordvelocity;
-            //Debug.Log(anim.speed);
+            if (!Cancelacion.iscancel)
+            {
+                Rotate();
+                anim.speed = General.swordvelocity;
+                //Debug.Log(anim.speed);
+            }
+            else
+            {
+                anim.speed = 0;
+            }
         }
-        else
-        {
-            anim.speed = 0;
-        }
-        
     }
     public void Rotate()
     {
@@ -29,5 +34,9 @@ public class sword : MonoBehaviour
         Vector3 dir = mousepos - transform.position;
         float angle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg - 90;
         transform.rotation = Quaternion.Euler(new Vector3(0,0,-angle));
+    }
+    public void sonido()
+    {
+        GameManager.instance.playsfx(espadaso);
     }
 }

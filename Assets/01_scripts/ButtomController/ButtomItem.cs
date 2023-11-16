@@ -10,7 +10,8 @@ public class ButtomItem : MonoBehaviour
     public Button bt;
     public Player pl;
     public float costo;
-    
+
+    public AudioClip sonidomejora;
     void Start()
     {
         costo = 5;
@@ -92,18 +93,19 @@ public class ButtomItem : MonoBehaviour
     {
         if ((int)pl.coins>=(int)costo)
         {
+            GameManager.instance.playsfx(sonidomejora);
             pl.TakeCoin(-(int)costo);
             costo *= 1.5f;
             General.swordvelocity *= 1.2f;
             General.sworddamage *= 1.2f;
         }
-        
     }
     public void Drone()
     {
         Debug.Log("entro dron");
         if ((int)pl.coins >= (int)costo)
         {
+            GameManager.instance.playsfx(sonidomejora);
             pl.TakeCoin(-(int)costo);
             costo *= 1.5f;
             General.dronvelocity /= 1.5f;
@@ -115,6 +117,7 @@ public class ButtomItem : MonoBehaviour
     {
         if ((int)pl.coins >= (int)costo)
         {
+            GameManager.instance.playsfx(sonidomejora);
             pl.TakeCoin(-(int)costo);
             costo *= 1.5f;
             //General.ballDamage /= 1.5f;
@@ -125,6 +128,7 @@ public class ButtomItem : MonoBehaviour
     {
         if ((int)pl.coins >= (int)costo)
         {
+            GameManager.instance.playsfx(sonidomejora);
             pl.TakeCoin(-(int)costo);
             costo *= 1.5f;
             //General.ballDamage /= 1.5f;

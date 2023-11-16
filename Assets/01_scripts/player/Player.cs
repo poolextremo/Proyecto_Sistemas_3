@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
 
     public float velocity = 5, life = 100, lifeTotal = 100;
 
-    public int lv = 0, coins = 0, upLv = 20;
+    public float lv = 0, coins = 0, upLv = 20;
     public float experience = 0;
     public Image experienceUI, lifeUIMini, swordImage, dronimage, ballImage, areaImage;
 
@@ -35,6 +35,8 @@ public class Player : MonoBehaviour
     public GameObject energyball, sword, area;
 
     public TextMeshProUGUI lifeTxt, cointxt, expTxt, timeTxt;
+
+    public AudioClip areasonido, subirinvel, agarrarmoneda, agarrarexperencia;
     void Start()
     {
         experienceUI.fillAmount = experience / 100;
@@ -95,17 +97,24 @@ public class Player : MonoBehaviour
         }
             
     }
+    public void acticararea()
+    {
+        GameManager.instance.playsfxloop(areasonido);
+        areaImage.gameObject.SetActive(true);
+    }
     public void Regeneracion()
     {
         if (life<100)
         {
-            life += Time.deltaTime / 3 + ((Time.deltaTime / 3) * (General.regen / 100));
+            life += (Time.deltaTime / 1.7f) + ((Time.deltaTime / 1.7f) * (General.regen / 100));
+            //Debug.Log(((Time.deltaTime/ 1.7f) * (General.regen / 100)));
         }
         
     }
     public void AplicChange()
     {
-        moveSpeed = moveSpeed + velocityBase * (General.speed / 100);
+        Debug.Log((velocityBase * General.speed));
+        moveSpeed = velocityBase + (velocityBase * General.speed);
     }
     public void BallEnergy()
     {
@@ -141,20 +150,23 @@ public class Player : MonoBehaviour
         expTxt.text = "Experiencia: " + experienceTotal;
         experience += ex;
         experienceUI.fillAmount = experience / upLv;
+        GameManager.instance.playsfx(agarrarexperencia);
         if (experience >= upLv)
         {
             experience = 0;
             lv++;
             textLvUI.text = "Lv " + lv + ":";
-            upLv *= 2;
+            upLv *= 1.15f;
             experienceUI.fillAmount = experience / upLv;
+            GameManager.instance.playsfx(subirinvel);
             controller.MenuLevelUp();
         }
     }
     public void TakeCoin(int cant)
     {
-        //Debug.Log("agarro una moneda");
-        coins+=cant;
+        if(cant>0)
+            GameManager.instance.playsfx(agarrarmoneda);
+        coins +=cant;
         cointxt.text = "Monedas: " + coins;
     }
     void LifeUI()
@@ -174,15 +186,20 @@ public class Player : MonoBehaviour
     }
     public void TakeDamage(float damage)
     {
-        isdamage = true;
-        life -= damage - (damage*(General.armadura/100));
-        lifeUI.localScale = new Vector3(1*(life/lifeTotal),0.2f,1);
-        if (life<=0)
+        if (!Cancelacion.iscancel)
         {
-            General.ValuesDefault();
-            SceneManager.LoadScene("MainMenu");
-            //Destroy(gameObject);
+            isdamage = true;
+            life -= damage - (damage * (General.armadura / 100));
+            //Debug.Log(damage * (General.armadura / 100));
+            lifeUI.localScale = new Vector3(1 * (life / lifeTotal), 0.2f, 1);
+            if (life <= 0)
+            {
+                General.experience = experience;
+                General.time = (timeMinute*60)+timeSecont;
+                SceneManager.LoadScene("GameOver");
+            }
         }
+            
     }
     public void ActivarDron()
     {
@@ -208,12 +225,12 @@ public class Player : MonoBehaviour
     }
     public enum Mejoras
     {
-        SwordVelocity,
+        armadura,
         dronextra,
         ball,
         area,
-        velocitydron,
-        damagedron,
-        damageSword
+        regeneracion,
+        velocidad,
+        criticos
     }
 }
