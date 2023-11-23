@@ -32,30 +32,75 @@ Primero nos dirigimos al siguiente repositorio:
 https://github.com/poolextremo/Proyecto_Sistemas_3/tree/Develop
 en ese repositorio tenemos que ubicarnos en la rama de Develop, esta rama es la que contiene el código fuente del juego integrado, podemos clonar la rama del repositorio, pero más fácil es descargar el código en forma de zip.
 
+![1](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/ebcab09c-722c-474d-9b71-fe02ce96fe11)
+
+
+![2](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/f605009d-5d39-40cd-801a-683c2594ddb8)
+
+
 Una vez descargado el proyecto nos dirigimos en la ubicación en la que se descargó y descomprimimos el archivo zip que descargamos este es el proyecto que abriremos una vez que hayamos descargado Unity.
+
+![3](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/485d7075-baba-428e-90b7-f3abae768d78)
+
 
 Ahora procedemos a descargar Unity Hub, este nos permite administrar diferentes versiones de Unity, proyectos, paquetes etc. Además de que facilitara el instalar el editor de Unity, para descargarlo iremos al siguiente sitio web:
 https://unity.com/download
 
+![4](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/1e41f4dd-38de-4268-bd88-ae4b7025973f)
+
+
 Una vez descargado instalar Unity Hub no es nada complicado, es una instalacion de siempre, cuando Unity Hub sea instalado lo abrimos este se vera asi:
+
+![5](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/a596d993-3ee8-4e18-8315-eb7de6ed08ed)
+
 
 Ahora lo que necesitamos es instalar el editor de Unity, para eso nos dirigimos a la pestaña de installs, aquí se muestra todos los editores que tenemos, proseguimos haciendo click en el botón azul Install Editor 
 
+![6](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/72fcd358-ba07-4050-b542-6cc604cf35ad)
+
+
 Se nos abre una ventana aquí nos dirigimos a la seccion de archive y damos click en el vinculo que dice download archive
+
+![7](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/f52e2f9f-f396-4e85-abd1-d691afb0d239)
+
 
 El vínculo nos lleva al archive de editores de Unity, el proyecto funciona con el editor Unity 2022.3.6 por lo tanto descargaremos ese
 
+![8](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/3ba76c0d-2db2-4648-95dc-952182523817)
+
+
 Una vez instalado el editor podemos volver a la pestaña de projects, ahora haremos click soble el boton open y elegimos la opcion Add project from disk
+
+![9](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/32871b93-06a6-4287-a707-9abf780cca29)
+
 
 Se nos abre el explorador de archivos, buscamos el proyecto que descomprimimos y lo seleccionamos
 
+![10](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/e2d58f7f-f2a4-4dc0-880e-fb17cba631a7)
+
+
 Una vez hallamos seleccionado el proyecto este se iniciara (puede tardar un poco), cuando tern¡mine de abrirse se nos mostrara el proyecto este contiene todo el codigo fuente, diseños, configuraciones etc.
+
+![11](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/962297bf-a484-4a59-8710-c5d8bbbc5823)
+
 
 Para generar un archivo .exe (ejecutable) del juego que se pueda jugar sin conexión lo que debemos hacer es dirigirnos a la parte superior, hacer click sobre file y seleccionar la opcion de Build Settings.
 
+![12](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/30910212-1673-454c-a48f-d531fcd306b7)
+
+
 Se nos abrirá la siguiente ventana y aquí simplemente damos click en el botón build que se encuentra en la parte inferior derecha
 
+![13](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/00b03816-ce21-47cd-bbf9-7dd7fe959a15)
+
+
 Al hacer click se abrirá el explorador de archivos, ahora solo queda elegir donde queremos que se construya el ejecutable del juego
+
+![14](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/712cda2a-6c9c-426b-adb5-5a247c295545)
+
+![15](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/d9fed2af-8b4c-49b0-bc48-855e5c03e7ef)
+
+
 
 Resultado:
 
