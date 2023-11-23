@@ -86,23 +86,27 @@ Una vez hallamos seleccionado el proyecto este se iniciara (puede tardar un poco
 
 Para generar un archivo .exe (ejecutable) del juego que se pueda jugar sin conexión lo que debemos hacer es dirigirnos a la parte superior, hacer click sobre file y seleccionar la opcion de Build Settings.
 
-![12](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/30910212-1673-454c-a48f-d531fcd306b7)
+
+![12](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/f41dac58-af4a-45b7-8db1-85678233b8d7)
 
 
 Se nos abrirá la siguiente ventana y aquí simplemente damos click en el botón build que se encuentra en la parte inferior derecha
 
-![13](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/00b03816-ce21-47cd-bbf9-7dd7fe959a15)
+
+![32](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/521a48e6-52cc-4252-8f03-da1c190ca507)
 
 
 Al hacer click se abrirá el explorador de archivos, ahora solo queda elegir donde queremos que se construya el ejecutable del juego
 
-![14](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/712cda2a-6c9c-426b-adb5-5a247c295545)
 
-![15](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/d9fed2af-8b4c-49b0-bc48-855e5c03e7ef)
+![20](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/20129686-e100-4154-aacc-40e4e056313e)
 
+![33](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/8123fb30-c143-4b18-86a0-6fcecd19a971)
 
 
 Resultado:
+
+![34](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/a80333e2-60af-4813-862c-4cbebfcde19b)
 
 
 *7.	PROCEDIMIENTO DE HOSTEADO / HOSTING (configuración)*
@@ -111,41 +115,99 @@ Ahora si lo que deseamos es hostear el proyecto en una página web lo más recom
 https://itch.io
 Para empezar a hacer el hosteo en la plataforma de itch.io lo primero que debemos hacer el el proyecto es dirigirnos a la parte superior, hacer click sobre file y seleccionar la opcion de Build Settings
 
+![12](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/8b433676-601a-4704-adbb-9f558fd92754)
+
+
 Se nos abre la siguiente ventana aquí seleccionamos la opción de WebGL por que será hosteado de forma web (se podrá jugar desde el navegador), por defecto este módulo no está instalado en Unity por lo tanto procederemos a instalarlo, para hacerlo damos click sobre el botón Install with Unity Hub
+
+![13](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/d8dae17e-c846-4b3d-955b-cfd11eb9d695)
+
 
 Unity hub nos muestra la siguiente ventana, damos click en el boton azul Install
 
+![14](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/c17ff43f-5773-47a6-b7c8-591b53a12af1)
+
+
 Se empezará a instalar
+
+![15](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/b3b05977-78a0-4d5f-8ee3-6f0c2a7413f9)
+
 
 Se mostrara lo siguiente una vez que el modulo web se halla terminado de instalar, ahora cada vez que un modulo nuevo se instala debemos reiniciar el editor para que se vean los cambios, para reiniciarlo simplemente cerramos el proyecto y lo volvemos a abrir con Unity Hub.
 
+![16](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/63cba988-b331-4346-938b-1b5e162a6fb7)
+
+
 Ahora los cambios son visibles
 
+![17](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/0cc707eb-e5d0-490f-9ab6-647ae47cb7ec)
+
+
 Ahora anates de construit la Build para hostearlo debemos hacer una pequeña configuración, nos dirigimos al boton que se encuentra en la parte inferior izquierda (Player Settings)
+
+![18](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/36dab4f1-8bc8-408c-b15c-cf0930a7c057)
 
 
 Cuando hayamos hecho click se abrirá la siguiente ventana, aquí nos dirigimos a la sección de publishing settings, nos dirigimos a la parte que dice compresion format y seleccionamos la opción que dice Disabled, hacemos esto para que no ocurra ningún error al momento de hostear el juego
 
+![19](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/e2c89a1b-bb36-4153-b4e1-a758a5a9e17b)
+
+
 Una vez hecho eso salimos de esa ventana y damos click en el botón build, se nos abrirá el explorador de archivos, seleccionamos donde queremos construir el juego.
 
+![20](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/9b6ec875-aff4-4141-a8d6-1273effb3725)
+
+
 Una vez finalizada la construcción del modelo debemos comprimir el proyecto, hay que comprimirlo como zip
+
+![21](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/e8b7e95b-4196-40b5-a132-1cb5a05a57e5)
+
 
 Estos son todos los pasos para construir el proyecto, ahora procedemos con el hosteo del juego para eso no logueamos en itch.io, si no tenemos una cuenta debemos crear una:
 https://itch.io/register
 
+![22](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/a27cf752-d9ca-4f87-acfe-d005423432a6)
+
+
 Una vez que hallamos ingresado a nuestra cuenta de itch.io hacemos click en la flecha que se encuentra al lado del nombre de nuestro perfil y seleccionamos la opción de Upload new Project
+
+![23](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/13ed978a-d39c-4d8e-a342-741748b8d577)
+
 
 Se nos abrirá una ventana donde podremos subir el proyecto lo primero que debemos hacer es colocar un título, luego nos vamos a la sección de Pricing y seleccionamos la opción de no Payments
 
+![24](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/4b5fa299-d8c8-49e1-8fa4-49cb64aa37ba)
+
+
 En la sección de Kind of project seleccionamos la opción de HTML esto nos permitirá subir el juego que construimos
+
+![25](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/35116076-09cf-4c22-9847-3de92fbbcc32)
+
 
 Ahora en la sección de Uploads hacemos click en el botón rosado Upload files, se nos abrirá el explorador de archivos, seleccionamos el proyecto que comprimimos como zip
 
+![26](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/18abc59c-2d94-4ce9-b009-8abe94f330d4)
+
+![27](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/9a6fd5a9-bce5-4836-8198-b2493353ab72)
+
+
 Cuando se termine de subir el proyecto nos aparecerá dos checkbox marcamos el checkbox que dice This file will be played in the browser, al marcar esta opción se nos permitirá jugar el juego en el navegador 
+
+![28](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/00a447da-1853-4251-b48d-e4680de3e8a1)
+
+
+![29](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/6a287f79-6de4-4b29-8ae1-3087d614301d)
+
 
 Finalmente damos click al botón rosado que se encuentra en el final “Save & view page” para subir el proyecto.
 
+![30](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/93c2d8f0-9330-41cb-87d6-6836b35527fc)
+
+
 Resultado:
+
+![31](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/20a84d0b-015c-4d52-a1c5-e9c10416f97c)
+
 
 *8.	GIT:*
 
