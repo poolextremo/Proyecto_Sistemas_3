@@ -21,7 +21,7 @@ Jhon Pool Magne Rojas – Developer / QA / Git Master
 
 
 
-*6.	Instalación y configuración:*
+*6.	Instalación y configuración:* 🔧
 
 Si lo que se quiere es simplemente ingresar al juego (hacerlo correr) y no modificar o hostear el código fuente lo único que se debe hacer es entrar al siguiente link:
 https://poolextremo.itch.io/la-batalla-eterna
@@ -109,7 +109,7 @@ Resultado:
 ![34](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/a80333e2-60af-4813-862c-4cbebfcde19b)
 
 
-*7.	PROCEDIMIENTO DE HOSTEADO / HOSTING (configuración)*
+*7.	PROCEDIMIENTO DE HOSTEADO / HOSTING (configuración)* 🔧
 
 Ahora si lo que deseamos es hostear el proyecto en una página web lo más recomendable es hacerlo en la página de itch.io, esta página es una plataforma de hosteo, venta de videojuegos, se recomienda porque es fácil de usar además de que es gratis.
 https://itch.io
@@ -209,15 +209,15 @@ Resultado:
 ![31](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/20a84d0b-015c-4d52-a1c5-e9c10416f97c)
 
 
-*8.	GIT:*
+*8.	GIT:* :octocat:
 
 https://github.com/poolextremo/Proyecto_Sistemas_3
 
-*9.	Personalización y configuración:*
+*9.	Personalización y configuración:* 💾
 
 
 
-*10.	Depuración y solución de problemas:*
+*10.	Depuración y solución de problemas:* 🔨
 
 Ejecutable
 Falta de Bibliotecas o Archivos:
@@ -245,11 +245,11 @@ Problemas con la caché del navegador:
 Problema: Los navegadores pueden almacenar en caché archivos y recursos, lo que puede causar que las versiones más recientes no se carguen.
 Solución: Desactiva la caché del navegador durante el desarrollo o cambia los nombres de los archivos para evitar que se almacenen en caché.
 
-*11.	Glosario de términos:*
+*11.	Glosario de términos:* 📝
 
 
 
-*12.	Referencias y recursos adicionales:*
+*12.	Referencias y recursos adicionales:* 📋
 
 https://github.com/poolextremo/Proyecto_Sistemas_3/tree/Develop
 
@@ -261,7 +261,7 @@ https://itch.io
 
 https://poolextremo.itch.io/la-batalla-eterna
 
-*13.	Herramientas de Implementación:*
+*13.	Herramientas de Implementación:* 🔨
 
 Para utilizar el código fuente
 •	C#
