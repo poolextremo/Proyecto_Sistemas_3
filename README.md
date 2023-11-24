@@ -1,6 +1,8 @@
 # Manual Técnico
 *1. Introducción:*
 
+Este documento está diseñado para proporcionar una guía detallada sobre la obtención, manipulación, configuración de nuestro juego. Este manual brindará las herramientas esenciales para comprender y aprovechar al máximo todas las capacidades que ofrece nuestro juego. A lo largo de estas páginas, exploraremos paso a paso cada componente, función y configuración además de donde encontrar el juego ya publicado.
+
 *2. Descripción del proyecto:*
 
 El proyecto realizado es llamado Eternal Battle este es un juego hecho con el motor Unity Engine y actualmente hosteado en la página de distribución de juegos itch.io. para jugarlo solamente debemos dirigirnos a la siguiente página:
