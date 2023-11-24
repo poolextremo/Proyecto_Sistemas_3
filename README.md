@@ -269,7 +269,7 @@ https://github.com/poolextremo/Proyecto_Sistemas_3
 
 *9.	Personalización y configuración:* 💾
 
-
+Por el momento para configurar diferentes características del juego se necesita un conocimiento medio en Unity al igual que conocimientos con el lenguaje C#, Para poder modificar características de los objetos tendríamos que ingresar al código que estos contienen, es recomendable no tocar el código si es que no se sabe a la manipulación de Unity.
 
 *10.	Depuración y solución de problemas:* 🔨
 
