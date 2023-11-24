@@ -15,10 +15,62 @@ Jhon Pool Magne Rojas – Developer / QA / Git Master
 
 *4.	Arquitectura del software:*
 
+Escenas y Navegación:
+Cada nivel o pantalla del juego se maneja como una escena en Unity.
+Un controlador de escenas gestiona la transición entre ellas.
 
+Manejo de Jugador:
+Un script de control del jugador maneja la entrada del usuario, como el movimiento y las acciones.
+Puede haber scripts específicos para diferentes estados del jugador, como caminar, correr, saltar, etc. Aquí mismo se hace el control de artefactos.
+
+Manejo de Enemigos:
+Un script de control de enemigos maneja las acciones y lógica de enemigos incluyendo el aumento de dificultad.
+
+Mapa:
+Mapa generado por chunks controlado por un script en un controlador, script de props random controlado con un script utilizado en el controlador del mapa.
+
+Los activos gráficos se gestionan mediante prefabs y se instancian según sea necesario.
+Se utilizan controladores de animación para gestionar las animaciones de los personajes y objetos.
+
+Lógica:
+Se manejan en scripts separados ya sea para para el player y enemigos o la lógica de objetos, nivel, y artefactos.
+
+Físicas:
+Unity tiene un sistema de físicas incorporado. Los objetos pueden tener colisionadores y rigidbodies para interactuar con el entorno.
+
+Interfaz de Usuario (UI):
+Scripts y objetos dedicados gestionan la interfaz de usuario, como menús, puntuaciones, etc.
+
+Sonido:
+Se utilizan scripts para controlar los efectos de sonido y la música.
+Pueden existir sistemas de eventos de sonido para sincronizar con eventos en el juego.
 
 *5.	Requisitos del sistema:*
 
+Para jugar al juego ya publicado
+•	Requerimientos de Hardware 
+-	4 GB o más de RAM
+-	Un disco duro con al menos 128 GB
+-	Una conexión a Internet
+
+•	Requerimientos de Software
+-	Navegador web
+
+Para utilizar el código fuente
+•	Requerimientos 
+
+![35](https://github.com/poolextremo/Proyecto_Sistemas_3/assets/111919106/e46f42be-3440-4075-a79a-69fccb8a9131)
+
+Unity Hub
+
+Sistema operativo:  Windows 7 SP1 o posterior, 8, 10, únicamente en las versiones de 64 bits; Mac OS 10.13 o posterior; Ubuntu 16.04, 18.04 y CentOS 7.
+
+GPU:  Tarjeta gráfica con capacidades DX10 (shader modelo 4.0).
+
+
+Visual Studio 2022
+
+https://learn.microsoft.com/es-es/visualstudio/releases/2022/system-requirements#visual-studio-2022-system-requirements
 
 
 *6.	Instalación y configuración:* 🔧
@@ -247,7 +299,47 @@ Solución: Desactiva la caché del navegador durante el desarrollo o cambia los 
 
 *11.	Glosario de términos:* 📝
 
+Unity:
+Un motor de desarrollo de juegos multiplataforma que permite la creación de juegos en 2D, 3D, realidad virtual (VR) y realidad aumentada (AR).
+GameObject:
+La unidad fundamental en la escena de Unity, que representa objetos en el juego.
 
+Component:
+Un módulo funcional adjunto a un GameObject, como un script, un renderizador o un colisionador.
+
+Script:
+Un conjunto de instrucciones escritas en lenguaje de programación (como C#) que define el comportamiento de un GameObject.
+
+Prefab:
+Una plantilla preconfigurada que se puede instanciar múltiples veces en la escena. Facilita la reutilización de elementos.
+
+Scene:
+Un entorno de juego o nivel en Unity, que puede contener GameObjects, luces, cámaras y otros elementos.
+
+Project:
+Una ventana en Unity que muestra los archivos y carpetas del proyecto, incluidos scripts, texturas, modelos, etc.
+
+Asset:
+Un archivo o recurso utilizado en Unity, como modelos 3D, texturas, sonidos, scripts, etc.
+
+Collider:
+Un componente que define la forma y el tamaño de un objeto para detectar colisiones con otros objetos.
+
+Rigidbody:
+Un componente que añade físicas a un GameObject, permitiéndole moverse y responder a fuerzas externas.
+
+Material:
+Una propiedad de renderizado que define cómo responde un objeto a la luz y cómo se ve.
+
+UI (User Interface):
+Elementos visuales y funcionales que forman la interfaz de usuario, como botones, texto y paneles.
+
+Animator:
+Un sistema en Unity para controlar la animación de objetos, permitiendo transiciones suaves entre estados.
+
+Physics:
+El sistema en Unity que simula el comportamiento físico de objetos, como gravedad y colisiones.
+Unity Asset Store:
 
 *12.	Referencias y recursos adicionales:* 📋
 
@@ -273,3 +365,13 @@ Para Iniciar e juego ya implementado
 •	Itch.io
 
 *14.	Bibliografía*
+
+https://docs.unity3d.com/Manual/system-requirements.html
+
+
+https://unity.com/es/download#:~:text=Requisitos%20del%20sistema%20de%20Unity,DX10%20(shader%20modelo%204.0).
+
+
+https://learn.microsoft.com/es-es/visualstudio/releases/2022/system-requirements#visual-studio-2022-system-requirements
+
+
