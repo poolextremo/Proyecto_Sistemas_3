@@ -10,6 +10,8 @@ https://poolextremo.itch.io/la-batalla-eterna
 
 El juego es un Bullet Heaven, en está clase de juegos el jugador controla a un personaje en un escenario infinito, en estos juegos el objetivo es sobrevivir la mayor cantidad de tiempo, mientras una gran cantidad de enemigos aparecen en el escenario mientras mas tiempo pase los enemigos se hacen mas resistentes mas rápidos, aunque no debemos preocuparnos por que el player mientras mas enemigos elimine sube de nivel y recibe monedas esto permitirá al player adaptarse a la dificultad que incrementa con el tiempo.
 
+[![Eternal Battle](https://img.youtube.com/vi/-UrQcJ0whNo/0.jpg)](https://www.youtube.com/watch?v=-UrQcJ0whNo)
+
 *3.	Roles / integrantes*
 
 Devin Douglas Amurrio Lizarazu – Developer / QA / Team Leader
