@@ -8,6 +8,7 @@ public class PlayButtonScript : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene("GameScene");
+        Cancelacion.iscancel = false;
         General.ValuesDefault();
     }
 

@@ -24,7 +24,7 @@ public class ButtomMejora : MonoBehaviour
         while (!mejora)
         {
             bt.onClick.RemoveAllListeners();
-            int i = Random.Range(1, 8);
+            int i = Random.Range(1, 9);
             switch (i)
             {
                 case 1:
@@ -83,6 +83,10 @@ public class ButtomMejora : MonoBehaviour
                     {
                         mejora = false;
                     }
+                    break;
+                case 8:
+                    upgrade = Player.Mejoras.life;
+                    mejora = true;
                     break;
                 default:
                     break;
@@ -154,6 +158,14 @@ public class ButtomMejora : MonoBehaviour
                     lista = true;
                 }
                 break;
+            case Player.Mejoras.life:
+                if (!lista)
+                {
+                    text.text = "100 de vida";
+                    bt.onClick.AddListener(Vida);
+                    lista = true;
+                }
+                break;
             default:
                 text.text = "error inesperado";
                 break;
@@ -210,5 +222,11 @@ public class ButtomMejora : MonoBehaviour
         pl.acticararea();
         GameManager.instance.playsfx(sonidomejora);
         bt.onClick.RemoveListener(Area);
+    }
+    public void Vida()
+    {
+        pl.life = 100;
+        GameManager.instance.playsfx(sonidomejora);
+        bt.onClick.RemoveListener(Vida);
     }
 }

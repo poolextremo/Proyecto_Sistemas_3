@@ -255,6 +255,7 @@ public class Player : MonoBehaviour
         area,
         regeneracion,
         velocidad,
-        criticos
+        criticos,
+        life
     }
 }

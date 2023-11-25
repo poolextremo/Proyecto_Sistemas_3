@@ -97,7 +97,7 @@ public class ButtomItem : MonoBehaviour
             pl.TakeCoin(-(int)costo);
             costo *= 1.5f;
             General.swordvelocity *= 1.2f;
-            General.sworddamage *= 1.2f;
+            General.sworddamage *= 1.5f;
         }
     }
     public void Drone()
@@ -108,8 +108,8 @@ public class ButtomItem : MonoBehaviour
             GameManager.instance.playsfx(sonidomejora);
             pl.TakeCoin(-(int)costo);
             costo *= 1.5f;
-            General.dronvelocity /= 1.5f;
-            General.dronDamage *= 1.5f;
+            General.dronvelocity /= 1.2f;
+            General.dronDamage *= 1.1f;
         }
             
     }
@@ -121,7 +121,7 @@ public class ButtomItem : MonoBehaviour
             pl.TakeCoin(-(int)costo);
             costo *= 1.5f;
             //General.ballDamage /= 1.5f;
-            General.ballDamage *= 1.2f;
+            General.ballDamage *= 1.5f;
         }
     }
     public void Area()
@@ -132,7 +132,7 @@ public class ButtomItem : MonoBehaviour
             pl.TakeCoin(-(int)costo);
             costo *= 1.5f;
             //General.ballDamage /= 1.5f;
-            General.areaDamage *= 1.5f;
+            General.areaDamage *= 1.8f;
         }
     }
     public enum items
